@@ -1,3 +1,5 @@
+import java.util.Date;
+
 import static ui.UIMenu.*;
 
 public class Main {
@@ -6,13 +8,20 @@ public class Main {
         //showMenu();
 
         Doctor myDoctor = new Doctor("Anahí Salgado", "Pediatria");
-        System.out.println(myDoctor.name);
-        System.out.println(myDoctor.speciality);
+        //Añadir nueva cita
+        myDoctor.addAvailableAppoiment(new Date(),"4pm");
+        myDoctor.addAvailableAppoiment(new Date(),"10am");
 
-        int i = 0;
-        int b = 2;
-        b = i;
-        //b=0
+        //Citas Disponibles
+        //llamar clase estatica
+        for (Doctor.AvailableAppoiment aA: myDoctor.getAvailableAppoiments()) {
+            System.out.println(aA.getDate()+" " +aA.getTime());
+            
+        }
+        myDoctor.getAvailableAppoiments();
+
+        System.out.println(myDoctor.getAvailableAppoiments());
+
         String name = "Ann";
 
         System.out.println();
@@ -22,12 +31,15 @@ public class Main {
 
         System.out.println(patient.getName());
         System.out.println(patient2.getName());
+
+        // igualar
         patient2 = patient;
 
         System.out.println(patient.getName());
         System.out.println(patient2.getName());
 
-        patient2.setName("Manuel");
+        patient2.setName("Pedro");
+        // se modifican ambos campos de los objetos
         System.out.println(patient.getName());
         System.out.println(patient2.getName());
 
@@ -36,6 +48,7 @@ public class Main {
 
         patient.setPhoneNumber("123456789");
         System.out.println(patient.getPhoneNumber());
+
 
     }
 
