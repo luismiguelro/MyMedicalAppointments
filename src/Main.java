@@ -1,10 +1,11 @@
+import javax.swing.*;
 import java.util.Date;
 
 import static ui.UIMenu.*;
 
 public class Main {
-    public static void main(String[] args) {
-
+    
+/*
         //showMenu();
 
         Doctor myDoctor = new Doctor("Anahí Salgado", "Pediatria");
@@ -44,13 +45,14 @@ public class Main {
         System.out.println(patient2.getName());
 
         /*patient.setWeight(54.6);
-        System.out.println(patient.getWeight());*/
+        System.out.println(patient.getWeight());
 
         patient.setPhoneNumber("123456789");
         System.out.println(patient.getPhoneNumber());
-
+*/
 
     }
+
 
 
 
