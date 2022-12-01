@@ -1,3 +1,5 @@
+package model;
+
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -22,7 +24,7 @@ public class Doctor extends User {
 
     ArrayList<AvailableAppointment> availableAppointments = new ArrayList<>();
     public void addAvailableAppointment(Date date, String time){
-        availableAppointments.add(new Doctor.AvailableAppointment(date,time));
+        availableAppointments.add(new AvailableAppointment(date,time));
     }
 
     public ArrayList<AvailableAppointment> getAvailableAppointments(){
