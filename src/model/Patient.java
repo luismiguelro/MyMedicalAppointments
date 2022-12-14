@@ -7,7 +7,7 @@ public class Patient extends User {
     private double height;
     private String blood;
 
-    Patient(String name, String email) {
+    public Patient(String name, String email) {
         super(name, email);
     }
 
@@ -45,5 +45,10 @@ public class Patient extends User {
     @Override
     public String toString() {
         return super.toString() + "\nAge: " + birthday + "\n Weight: " +getWeight()+ "\n Height"+getHeight()+"\nBlood"+blood;
+    }
+
+    @Override
+    public void showDataUser() {
+        System.out.println(super.toString());
     }
 }

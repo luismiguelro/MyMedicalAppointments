@@ -2,12 +2,13 @@ package model;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Objects;
 
 public class Doctor extends User {
     //Atributo
     private String speciality;
 
-    Doctor(String name, String email){
+    public Doctor(String name, String email){
         super(name,email);
         System.out.println("El nombre del Doctor asignado es: " + name);
         this.speciality = speciality;
@@ -34,6 +35,12 @@ public class Doctor extends User {
     @Override
     public String toString() {
         return super.toString() + "\nSpeciality: " + speciality + "\nAvailable: " + availableAppointments.toString();
+    }
+
+    @Override
+    public void showDataUser() {
+        System.out.println("Hospital: Cruz Roja");
+
     }
 
     public static class AvailableAppointment{
@@ -76,5 +83,6 @@ public class Doctor extends User {
             return "Available Appointments \nDate: " +date+ "\nTime: " + time;
         }
     }
+
 
 }
