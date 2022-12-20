@@ -1,8 +1,6 @@
 package ui;
 
-import model.Doctor;
-import model.Patient;
-import model.User;
+import model.*;
 
 import java.util.Date;
 
@@ -41,6 +39,25 @@ public class Main {
 
         // user, obteniendo comportamiento que dio objeto doctor
 
+        //Clases Anonimas
+
+        User user1 = new User("Lucho","lucho@mail.com") {
+            @Override
+            public void showDataUser() {
+                System.out.println("El mejor doctor es: Lucho");
+            }
+        };
+        user1.showDataUser();
+        ISchedulable iSchedulable = new ISchedulable() {
+            @Override
+            public void schedule(Date date, String time) {
+
+            }
+        };
+
+        ISchedulable iSchedulable1 = new AppoimentDoctor();
+        /* se ejecutarátodo lo que esta en Appoimente*/
+        };
     }
 
 
