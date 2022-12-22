@@ -3,6 +3,7 @@ package ui;
 import model.Doctor;
 import model.Patient;
 
+import javax.swing.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -12,18 +13,13 @@ public class UIMenu {
     public static Doctor doctorLogged;
     public static Patient patientLogged;
     public static void showMenu(){
-        System.out.println("Welcome to My Appointments");
-        System.out.println("Selecciona la opción deseada");
-
         int response = 0;
         do {
-            System.out.println("1. Doctor");
-            System.out.println("2. Patient");
-            System.out.println("0. Salir");
-
-            Scanner sc = new Scanner(System.in);
-            response = Integer.valueOf(sc.nextLine());
-
+            response=Integer.parseInt(JOptionPane.showInputDialog(null,"Welcome to My Appointments\n"+
+                    "Selecciona la opción deseada " +
+                    "\n1.Doctor" +
+                    "\n2.Patient" +
+                    "\n0.Salir"));
             switch (response){
                 case 1:
                     System.out.println("Doctor");
@@ -35,10 +31,10 @@ public class UIMenu {
                     authUser(2);
                     break;
                 case 0:
-                    System.out.println("Thank you for you visit");
+                    JOptionPane.showMessageDialog(null,"Thank you for you visit");
                     break;
                 default:
-                    System.out.println("Please select a correct answer");
+                    JOptionPane.showMessageDialog(null,"Please select a correct answer");
             }
         }while (response != 0);
     }
@@ -46,7 +42,7 @@ public class UIMenu {
         //usertype = 1 Doctor
         //usertype = 1 Patient
 
-        //doctor
+
         ArrayList<Doctor> doctors = new ArrayList<>();
         doctors.add(new Doctor("Alejandro Martinez", "Alejandro@mail.com"));
         doctors.add(new Doctor("Alejandra Marquez", "Alejandra@mail.com"));
@@ -59,17 +55,15 @@ public class UIMenu {
 
         boolean emailCorrect = false;
         do{
-            System.out.println("Inser yor email: [a@a].com");
-            Scanner sc = new Scanner(System.in);
-            String email = sc.nextLine();
+            String email =JOptionPane.showInputDialog ("Insert your email: [a@a].com");
              if (userType==1){
                  for (Doctor d : doctors){
                      if (d.getEmail().equals(email)){
                          emailCorrect=true;
                          //Obtener usuario logeado, e inicializar con doctor localizado
                          doctorLogged=d;
-
                          //showDoctor menu
+                         UIDoctorMenu.showDoctorMenu();
 
                      }
                  }

@@ -13,12 +13,12 @@ public class UIDoctorMenu {
         int response=0;
         do {
             response=Integer.parseInt(JOptionPane.showInputDialog(null,"\n"
-            + "Welcome! "+UIMenu.doctorLogged.getName()+"\n"+
+            + "Welcome "+UIMenu.doctorLogged.getName()+"!"+"\n"+
                     "1. Add Available Appoiment\n" +
                     "2. My Scheduled Appoinments\n" +
                     "0. Logout"));
             switch (response){
-                case 1:
+                case 1: showAddAvailableAppoiments();
                     break;
                 case 2:
                     break;
@@ -30,20 +30,22 @@ public class UIDoctorMenu {
     }
      private static void showAddAvailableAppoiments(){
         int response=0;
+         String salida="";
         //Select Month
         do {
-            JOptionPane.showMessageDialog(null,"ADD Available Appoiment\n"+"Select a Month:");
+
             for (int i = 0; i <3 ; i++) {
                 int j = i+1;
-                JOptionPane.showMessageDialog(null,j+ "."+UIMenu.MONTHS[i]);
+
+                        salida+=j+UIMenu.MONTHS[i]+"\n";
             }
-            response=Integer.parseInt(JOptionPane.showInputDialog(null,"0.Return"));
+            response=Integer.parseInt(JOptionPane.showInputDialog(null,"ADD Available Appoiment\n"+"Select a Month:\n "+salida+" 0.Return"));
             String date;
             if (response>0 && response<4){
                 int monthSelected = response;
-                 date=JOptionPane.showInputDialog(null,monthSelected+"."+UIMenu.MONTHS[monthSelected]+
-                        "\n"+"Insert the date available:[dd/"+UIMenu.MONTHS[monthSelected]+"/yyyy]");
-                int responseDate=Integer.parseInt(JOptionPane.showInputDialog(null,"Your date is"+date+"\n1.Correct"+
+                 date=JOptionPane.showInputDialog(null,monthSelected+"."+UIMenu.MONTHS[monthSelected-1]+
+                        "\n"+"Insert the date available:[dd/ "+UIMenu.MONTHS[monthSelected-1]+" /yyyy]");
+                int responseDate=Integer.parseInt(JOptionPane.showInputDialog(null,"Your date is "+date+" \n1.Correct"+
                         "\n2.Change Date"));
                 if (responseDate ==2) continue;     // no se sale del ciclo
 
@@ -53,7 +55,7 @@ public class UIDoctorMenu {
                 do{
                     time=JOptionPane.showInputDialog(null,"Insert the time available for date: "+date+" [16:00]");
 
-                     responseTime=Integer.parseInt(JOptionPane.showInputDialog(null,"Your time is"+date+"\n1.Correct"+
+                     responseTime=Integer.parseInt(JOptionPane.showInputDialog(null,"Your time is"+time+"\n1.Correct"+
                             "\n2.Change Date"));
 
                 }while (responseTime==2);
