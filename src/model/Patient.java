@@ -1,11 +1,37 @@
 package model;
 
+import com.sun.org.apache.bcel.internal.generic.DCONST;
+
+import javax.print.Doc;
+import java.util.ArrayList;
+import java.util.Date;
+
 public class Patient extends User {
 
     private String birthday;
     private double weight;
     private double height;
     private String blood;
+    private ArrayList<AppoimentDoctor>appoimentDoctors = new ArrayList<>();
+    private ArrayList<AppoimentNurse>appoimentNurses = new ArrayList<>();
+
+    public ArrayList<AppoimentDoctor> getAppoimentDoctors() {
+        return appoimentDoctors;
+    }
+
+    public void addAppoimentDoctors(Doctor doctor, Date date, String time) {
+        AppoimentDoctor appoimentDoctor = new AppoimentDoctor(this,doctor);
+        appoimentDoctor.schedule(date,time);
+        appoimentDoctors.add(appoimentDoctor);
+    }
+
+    public ArrayList<AppoimentNurse> getAppoimentNurses() {
+        return appoimentNurses;
+    }
+
+    public void setAppoimentNurses(ArrayList<AppoimentNurse> appoimentNurses) {
+        this.appoimentNurses = appoimentNurses;
+    }
 
     public Patient(String name, String email) {
         super(name, email);
